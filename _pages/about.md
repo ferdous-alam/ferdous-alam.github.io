@@ -9,7 +9,6 @@ redirect_from:
 ---
 <p align="center">
   <img src="autonomous_mfg.gif" style="width:300px;height:400px;"/>
-  <center>  Autonomous manufacturing </center>
 </p>
 
  <p align="justify"> 
@@ -18,7 +17,6 @@ I am Ferdous, a PhD candidate in the Mechanical and Aerospace Engineering Depart
 
 <p align="center">
   <img src="AMS_concept.gif" style="width:800px;height:600px;" />
-  <center>  Autonomous manufacturing </center>
 </p>
 
 ## Research interests 
