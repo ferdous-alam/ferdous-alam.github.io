@@ -17,8 +17,8 @@ I am Ferdous, a PhD candidate in the Mechanical and Aerospace Engineering Depart
 </p>
 
 ## Research interests 
-* <p align="justify"> (Hierarchical) reinforcement learning and control algorithms that can help building autonomous systems capable of performing high level abstract tasks </p>    
+* <p align="justify"> Reinforcement learning and control algorithms that can help building autonomous systems capable of performing high level abstract tasks </p>    
 * <p align="justify"> Leveraging physics based knowledge in Machine Learning for robust decision making</p>   
-* <p align="justify"> Optimization and optimal control </p>   
+* <p align="justify"> Deep learning and optimization</p>   
 
 Download my [resume](https://github.com/ferdous-alam/ferdous-alam.github.io/blob/master/Ferdous_resume.pdf).
