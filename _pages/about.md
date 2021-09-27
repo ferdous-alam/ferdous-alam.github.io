@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 <p align="center">
-  <img src="autonomous_mfg.gif" style="width:500px;height:600px;"/>
+  <img src="autonomous_mfg.gif" style="width:300px;height:400px;"/>
   <center>  Autonomous manufacturing </center>
 </p>
 
