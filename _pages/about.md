@@ -20,10 +20,9 @@ I am Ferdous, a PhD candidate in the Mechanical and Aerospace Engineering Depart
 </p>
 
 ## Research interests 
-* <p align="justify"> Reinforcement learning and transfer learning</p>    
-* <p align="justify"> Physics based Machine Learning</p>   
-* <p align="justify"> Deep learning and Gaussian Process</p>
-* <p align="justify"> Control theory and Optimization</p>
+* <p align="justify"> Statistical Machine learning, Deep learning and Gaussian Process</p>    
+* <p align="justify">Reinforcement learning and transfer learning</p>
+* <p align="justify"> Robotics, Control theory and Optimization</p>
    
 
 Download my [resume](https://github.com/ferdous-alam/ferdous-alam.github.io/blob/master/Ferdous_resume.pdf).
