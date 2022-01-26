@@ -1,0 +1,2 @@
+Md Ferdous Alam is a PhD candidate at the Ohio State University. He is working on making manufacturing systems autonomous by developing 
+suitable sequential decision algorithms. 
