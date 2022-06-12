@@ -1,1 +1,5 @@
-Md Ferdous Alam is from a lovely south asian country called Bangladesh. He works on developing machine learning for real-world autonomous applications. He is also a fan of heavy metal music. 
+Md Ferdous Alam is from a lovely south asian country 
+called Bangladesh. He works on developing machine learning algorithms 
+for real-world autonomous applications. He is an avid fan of heavy 
+metal music (old school heavy metal, thrash metal and death metal) and western classical music 
+(late romantic, impressionist, neoclassical).
