@@ -20,9 +20,9 @@
               <p style="text-align:center">
                 <name>Md Ferdous Alam</name>
               </p>
-              <p>I am a PhD candidate at the Ohio State University where I work on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks. 
+              <p>I am a Ph.D. candidate at the Ohio State University where I work on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks such as design, manufacturing and robotics. 
                 I am supervised by 
-              <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. I was also a research intern at the 
+              <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. I was also a research intern and later a research collaborator at the 
               <a href="https://www.autodesk.com/research/overview"> Autodesk AI Lab </a> where I worked with 
               <a href="https://www.autodesk.com/research/people/rodger-luo"> Dr. Rodger Luo </a> on AI driven design approaches. 
               </p>
@@ -55,9 +55,9 @@
                 for AI assisted design and intelligent manufacturing. I, along with my 
                 team members, have built a state-of-the-art autonomous manufacturing research robot 
                 that can take decisions in real-time to design and manufacture a complex geometry 3D 
-                artifact <strong>without any human intervention</strong>. I have designed and implemented the software architecture 
+                artifact <strong>without any human intervention</strong> and require 10x less data samples. I have designed and implemented the software architecture 
                 for this autonomous robot. During my internship at the Autodesk 
-                AI Lab, I have worked on transformer based self-supervised approaches and generative models 
+                AI Lab, I have worked on transformer based self-supervised approaches and autoregressive generative models 
                 for complex 3D design tasks.   
                 <strong>Due to logistics issue the arxiv links 
                 are not working at this moment, please reach out to me if you are interested in my research. </strong>
@@ -371,11 +371,11 @@
           <td style="padding:20px;width:100%;vertical-align:middle">
             <heading>Projects</heading>
             <p>
-              I am developing the open source autonomous manufacturing library which is specifically built for the research bot that we have built. 
-              This library supports modular implementation of any learning algorithms on the research bot. Additionally I am developing four open source libraries. 
-              As managing time for all of these projects has been a little bit difficult, they are not complete yet. Nonetheless I hope to make it work. 
-              The motivation for these projects came from the fact that I could not find anything similar when I needed them for my research, 
-              courseworks or even when building conceptual understanding of these topics.   
+              I am developing the open source autonomous manufacturing library which is specifically built for the research robot that we have built. 
+              This library supports modular implementation of any learning algorithms on the research bot. Additionally I am developing another open source library for modular implementation of 
+              state-of-the-art AI algorithms. For example, here is the implementation of the <a href="https://github.com/ferdous-alam/DeconstructedML/tree/master/Deconstructed_Deep_learning/Transformers">vanilla transformer architecture from scratch </a> 
+              and <a href="https://grad-student-083.netlify.app/posts/2022-08-21-transformer-implementation/ ">corresponding blog with implementation details</a>.  
+              
             </p>
           </td>
         </tr>
@@ -420,43 +420,6 @@
       </tr> 
 
 
-         <!-- Project 1: optkit-->
-
-         <tr onmouseout="optkit_stop()" onmouseover="optkit_start()" >  <!-- comment: use this for color bgcolor="#ffffd0"-->
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <div class="one">
-              <div class="two" id='optkit_image'>
-              <img src="images/optkit.gif" width="160"></div>
-              <img src="images/optkit.gif" width="160"></div>
-            </div>
-            <script type="text/javascript">
-              function optkit_start() {
-                document.getElementById('optkit_image').style.opacity = "1";
-              }
-
-              function optkit_stop() {
-                document.getElementById('optkit_image').style.opacity = "0";
-              }
-              optkit_stop()
-            </script>
-          </td>
-          <td style="padding:20px;width:75%;vertical-align:middle">
-            <a href="https://github.com/ferdous-alam/OptKit">
-              <papertitle>OptKit</papertitle>
-            </a>
-            <br>
-                    <strong>Md Ferdous Alam</strong>,
-            <br>
-            <em>under development</em>, 2022
-            <br>
-            <a href="https://github.com/ferdous-alam/OptKit">project page</a>
-        
-            <p></p>
-            <p>Mathematical optimization library written in python with visualization</p>
-          </td>
-        </tr> 
-
-
         <tr onmouseout="optkit_stop()" onmouseover="optkit_start()" >  <!-- comment: use this for color bgcolor="#ffffd0"-->
           <td style="padding:20px;width:25%;vertical-align:middle">
             <div class="one">
@@ -489,45 +452,12 @@
             <p></p>
             <p> Implementation of statistical machine learning algorithms such as linear/polynomial regression, SVM, Decision Trees, PCA, etc. This project also contains 
               two important subprojects: a modular implementation of SOTA ML/deep learning algorithms (i.e. <strong>MLP, CNN, RNN, Autoencoders, GAN, VAE, Transformers</strong>) and a modular implementation 
-              of SOTA RL algorithms (i.e. <strong>REINFORCE, DQN, TRPO, PPO, A3C, DDPG, SAC</strong>). The later two subprojects are part of an ongoing reseach project and this repo will be published along with
+              of SOTA RL algorithms (i.e. <strong>REINFORCE, DQN, PPO, A3C, DDPG, SAC</strong>). The later two subprojects are part of an ongoing reseach project and this repo will be published along with
               the paper. </p>
           </td>
         </tr> 
 
 
-        <tr onmouseout="optkit_stop()" onmouseover="optkit_start()" >  <!-- comment: use this for color bgcolor="#ffffd0"-->
-          <td style="padding:20px;width:25%;vertical-align:middle">
-            <div class="one">
-              <div class="two" id='optkit_image'>
-              <img src="images/mona_bot.png" width="120"></div>
-              <img src="images/mona_bot.png" width="120"></div>
-            </div>
-            <script type="text/javascript">
-              function optkit_start() {
-                document.getElementById('optkit_image').style.opacity = "1";
-              }
-
-              function optkit_stop() {
-                document.getElementById('optkit_image').style.opacity = "0";
-              }
-              optkit_stop()
-            </script>
-          </td>
-          <td style="padding:20px;width:75%;vertical-align:middle">
-            <a href="https://github.com/ferdous-alam/RoboKit">
-              <papertitle>RoboKit</papertitle>
-            </a>
-            <br>
-                    <strong>Md Ferdous Alam</strong>,
-            <br>
-            <em>under development</em>, 2022
-            <br>
-            <a href="https://github.com/ferdous-alam/RoboKit">project page</a>
-        
-            <p></p>
-            <p>Simple robotics library developed for screw axis method</p>
-          </td>
-        </tr> 
 
 
       </tbody></table>
