@@ -11,10 +11,17 @@
           .node:hover {
               cursor: pointer;
           }
+        p {
+        height: 90px;
+        line-height: 200px;
+        text-align: center;
+        /* border: 3px dashed #1c87c9; */
+        color: black; 
+        font-size: 45px;
+      }
         </style>
-
 	</head>
-
+<p>A graph representation of my Ph.D. research</p>
 <body>
 	<div id="networkGraph"></div>
 
@@ -22,27 +29,25 @@
 
 <script>
 var nodes = [
-      { id: "A", label: "AI/ML systems integration" },
-      { id: "B", label: "Representation Learning" },
-      { id: "C", label: "Unified approach for transfer learning in RL" },
-      { id: "D", label: "Hardware" },
-      { id: "E", label: "Software" }, 
-      { id: "F", label: "High dimensional robotics" }, 
-      { id: "G", label: "Sequential design" }, 
-      { id: "H", label: "Autonomous Manufacturing System" },       
+      { id: "A", label: "Autonomous Manufacturing System", url_link:'autonomous_mfg.html'},
+      { id: "B", label: "Representation Learning", url_link:'representation.html' },
+      { id: "C", label: "Data efficient sequential decision making", url_link:'data_efficient_RL.html' },
+      { id: "D", label: "AI/ML system integration", url_link:'system_int.html' },
+      { id: "E", label: "Hardware", url_link:'hardware.html' }, 
+      { id: "F", label: "Software", url_link:'software.html' }, 
+      { id: "G", label: "Sequential design", url_link:'sequential_design.html' }, 
+      { id: "H", label: "High dimensional robotics", url_link:'high_dim_robotics.html' },       
   ];
   
 var links = [
       { source: "A", target: "B" },
-      { source: "B", target: "C" },
       { source: "A", target: "C" },
       { source: "A", target: "D" },
-      { source: "A", target: "E" },
-      { source: "C", target: "F" }, 
+      { source: "D", target: "E" },
+      { source: "D", target: "F" },
       { source: "B", target: "G" }, 
-      { source: "A", target: "H" }, 
-      { source: "H", target: "D" },
-      { source: "H", target: "E" },  
+      { source: "B", target: "H" }, 
+      { source: "C", target: "H" }, 
     ];
 
 
@@ -66,9 +71,9 @@ function blogGraph(graph) {
               // .strength(1)            
             )
             .force('charge', d3.forceManyBody()
-              .strength(-700)
-              .theta(3.0)
-              .distanceMax(1500)
+              .strength(-250)
+              .theta(15)
+              .distanceMax(500)
             )
             .force('collision', d3.forceCollide().radius(function(d) {
                     return d.radius
@@ -176,7 +181,7 @@ function blogGraph(graph) {
 
         function clicked(d) {
             // Navigate to another page when node is clicked
-            window.location.href = "https://example.com/" + d.id;
+            window.location.href = d.url_link;
             }
 
                 
