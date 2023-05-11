@@ -8,7 +8,7 @@
   
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/mona_bot.png">
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
@@ -42,14 +42,16 @@
               <a href="images/ferdous_new.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/ferdous_circle.png" class="hoverZoomLink"></a>
             </td>
           </tr>
-        </tbody></table>
+        </tbody>
+      </table>
               
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
+      
+          <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
               <heading>Research</heading>
-              <svg id="networkGraph" width="600" height="200"></svg>
-
+              <svg id="networkGraph" width="800" height="250"></svg>
+       
               <p>
                 My core research interest is to enable efficient decision making in complex autonomous systems. 
                 I draw from artificial intelligence (AI)/machine learning (ML), deep learning, 
@@ -512,9 +514,6 @@
 
       </tbody></table>
 
-
-
-
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
             <td>
@@ -572,217 +571,117 @@
 
 
   <script>
-    var nodes = [
-          { id: "A", label: "AI/ML/Representation learning", url_link:'autonomous_mfg.html'},
-          { id: "B", label: "Systems Integration", url_link:'representation.html' },
-          { id: "C", label: "Control theory", url_link:'data_efficient_RL.html' },
-          { id: "D", label: "Smart manufacturing", url_link:'system_int.html' },
-          { id: "E", label: "Generative design", url_link:'hardware.html' }, 
-          { id: "F", label: "Autonomous robots", url_link:'software.html' }, 
-      ];
-      
-    var links = [
-          { source: "A", target: "D" },
-          { source: "A", target: "E" },
-          { source: "A", target: "F" },
-          { source: "B", target: "D" },
-          { source: "B", target: "F" },
-          { source: "C", target: "D" }, 
-          { source: "C", target: "F" }, 
-        ];
+    const svg = d3.select("#networkGraph");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     
-    
-    function blogGraph(graph) {
-    
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-    
-            const sourceRadius = 15;
-            const entityRadius = 15;
-            const linkdistance = 50;
-    
-            var svg = d3.select("#networkGraph")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height);
-    
-            var simulation = d3.forceSimulation()
-                .force("link", d3.forceLink().id(function(d) { return d.id; })
-                  .distance(linkdistance)
-                  // .strength(1.0)            
-                )
-                .force('charge', d3.forceManyBody()
-                  .strength(-800)
-                  .theta(0)
-                  .distanceMax(125)
-                )
-                .force('collision', d3.forceCollide().radius(function(d) {
-                        return d.radius
-                      }))
-              .force("center", d3.forceCenter(document.querySelector("#networkGraph").clientWidth / 2, document.querySelector("#networkGraph").clientHeight / 2));
-    
-            var defs = svg.append("defs");
-    
-            defs.append("radialGradient")
-                .attr("id", "entity-gradient")
-                .attr("cx", "50%") 
-                .attr("cy", "50%") 
-                .attr("r", "50%") 
-                .selectAll("stop")
-                .data([
-                        {offset: "50%", color: "#ffffff"},
-                        {offset: "100%", color: "#CCCCCC"},
-                    ])
-                .enter().append("stop")
-                .attr("offset", function(d) { return d.offset; })
-                .attr("stop-color", function(d) { return d.color; });
-    
-            defs.append("radialGradient")
-                .attr("id", "source-gradient")
-                .selectAll("stop")
-                .data([
-                        {offset: "20%", color: "#eda515"},
-                        {offset: "100%", color: "#827777"},
-                    ])
-                .enter().append("stop")
-                .attr("offset", function(d) { return d.offset; })
-                .attr("stop-color", function(d) { return d.color; });
-    
-             
-            var link = svg.append("g")
-                .selectAll("line")
-                .data(links)
-                .enter().append("line")
-                .attr("stroke", "skyblue")
-                .attr("stroke-width", 2);
-    
-            link
-              .style("stroke", "#aaa");
-    
-            var node = svg.append("g")
-                .attr("class", "nodes")
-                .call(d3.drag() // Enable drag behavior
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended))
-                .selectAll("circle")
-                .data(nodes)
-                .enter().append("circle")
-                  //I made the article/source nodes larger than attribute nodes
-                    .attr("r", function(d){return d.category==0 ? sourceRadius : entityRadius})
-                .on("click", clicked); // Handle click event
-    ;
-                
-    
-            node
-                .style("fill", "#cccccc")
-                .style("fill-opacity","0.9")
-                .style("stroke", "#424242")
-                .style("stroke-width", "1px");
-    
-            node
-                .style("fill", function(d){return d.category==0 ? "url(#source-gradient)" : "url(#entity-gradient)"});        
-    
-            var label = svg.append("g")
-                .attr("class", "labels")
-                .selectAll("text")
-                .data(nodes)
-                .enter().append("text")
-                .text(function(d) { return d.label; })
-                .attr("class", "label");
-                
-            label
-                .style("text-anchor", "middle")
-                // .style("font-size", function(d) {return d.category == 1 ? Math.min(2 * entityRadius, (2 * entityRadius - 8) / this.getComputedTextLength() * 15) + "px" : Math.min(2 * sourceRadius, (2 * sourceRadius - 8) / this.getComputedTextLength() * 50) + "px"; });
-                .style("font-size", 15);
-    
-            label 
-                .on("mouseover", function(d){
-                            tooltip.html(`${d.label}`); 
-                            return tooltip.style("visibility", "visible");})
-                .on("mousemove", function(){
-                    return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-    
-    
-            node
-                .on("mouseover", function(d){
-                            tooltip.html(`${d.label}`); 
-                            return tooltip.style("visibility", "visible");})
-                .on("mousemove", function(){
-                    return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-                .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-    
-                   
-            simulation
-                .nodes(nodes)
-                .on("tick", ticked);
-    
-            simulation.force("link")
-                .links(links);
-    
-            function clicked(d) {
-                // Navigate to another page when node is clicked
-                window.location.href = d.url_link;
-                }
-    
-                    
-            function dragstarted(d) {
-                if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-                d.fx = d.x;
-                d.fy = d.y;
-            }
-    
-            function dragged(d) {
-                d.fx = d3.event.x;
-                d.fy = d3.event.y;
-            }
-    
-            function dragended(d) {
-                if (!d3.event.active) simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
-            }
-      
-            function ticked() {
-                link
-                    .attr("x1", function(d) { return d.source.x; })
-                    .attr("y1", function(d) { return d.source.y; })
-                    .attr("x2", function(d) { return d.target.x; })
-                    .attr("y2", function(d) { return d.target.y; });
-    
-                node
-                     .attr("cx", function (d) { return d.x+5; })
-                     .attr("cy", function(d) { return d.y-3; });
-                
-                label
-                    .attr("x", function(d) { return d.x; })
-                    .attr("y", function (d) { return d.y; });
-    
-                }
-    
-            var tooltip = d3.select("body")
-                .append("div")
-                .style("position", "absolute")
-                .style("visibility", "hidden")
-                .style("color", "white")
-                .style("padding", "8px")
-                .style("background-color", "#626D71")
-                .style("border-radius", "6px")
-                .style("text-align", "center")
-                .style("width", "auto")
-                .text("");
-            
+    const nodes = [
+      { id: "A", group: 1, text: "AI/ML/RL +\nRepresentation\nlearning" },
+      { id: "B", group: 1, text: "Systems\nintegration" },
+      { id: "C", group: 1, text: "Control\ntheory" },
+      { id: "D", group: 2, text: "Smart\nmanufactring" }, 
+      { id: "E", group: 2, text: "Autonomous\nrobots" },
+      { id: "F", group: 2, text: "Generative\ndesign" },
+    ];
+
+    const links = [
+      { source: "A", target: "D" },
+      { source: "A", target: "E" },
+      { source: "A", target: "F" },
+      { source: "B", target: "D" }, 
+      { source: "B", target: "E" }, 
+      { source: "C", target: "D" }, 
+      { source: "C", target: "E" }  
+    ];
+
+    const color = d3.scaleOrdinal()
+      .domain([1, 2])
+      .range(["blue", "red"]);
+
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(50))
+      .force("charge", d3.forceManyBody().strength(-500))
+      .force("center", d3.forceCenter(375, 125))
+      // .force("square", squareForce(300, 250, 100))
+      .on("tick", ticked);
+
+    const link = svg.append("g")
+      .attr("stroke", "#999")
+      .attr("stroke-opacity", 0.6)
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("stroke-width", 2);
+
+    const node = svg.append("g")
+      .selectAll("g")
+      .data(nodes)
+      .join("g")
+      .call(drag(simulation));
+
+    node.append("circle")
+      .attr("r", 20)
+      .attr("fill", d => color(d.group))
+      .style("fill-opacity","0.25")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 0);
+
+    node.append("text")
+      .attr("text-anchor", "middle")
+      .selectAll("tspan")
+      .data(d => d.text.split("\n"))
+      .join("tspan")
+      .attr("x", 0)
+      .attr("y", (d, i, nodes) => `${(i - nodes.length / 2 + 0.5) * 12}px`)
+      .text(d => d);
+
+    function ticked() {
+      link.attr("x1", d => d.source.x)
+          .attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x)
+          .attr("y2", d => d.target.y);
+
+      node.attr("transform", d => `translate(${d.x},${d.y})`);
     }
-     
-        var graphUrl = ''; //filepath or url for your data goes here
-        d3.json(graphUrl,function(error,data){
-              blogGraph(data)
-            });
-    
+
+    function drag(simulation) {
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      return d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended);
+    }
+
+      // Define a custom force to pull the nodes towards a square formation
+    function squareForce(x, y, radius) {
+      return (alpha) => {
+        for (const node of nodes) {
+          const dx = x - node.x;
+          const dy = y - node.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const targetDistance = distance < radius ? radius : distance;
+          node.vx += dx / distance * targetDistance * alpha;
+          node.vy += dy / distance * targetDistance * alpha;
+        }
+      }
+      }
     </script>
-
-
-
 
 </body>
 
