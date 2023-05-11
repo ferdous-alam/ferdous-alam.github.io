@@ -21,9 +21,9 @@
               <p style="text-align:center">
                 <name>Md Ferdous Alam</name>
               </p>
-              <p>I am a Ph.D. candidate at the Ohio State University where I work on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks such as design, manufacturing and robotics. 
-                I am supervised by 
-              <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. I was also a research intern and later a research collaborator at the 
+              <p>I obtained my Ph.D. at the Ohio State University where I worked on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks such as design, manufacturing and robotics. 
+                I was supervised by 
+              <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. Previously, I also worked as a research intern and later a research collaborator at the 
               <a href="https://www.autodesk.com/research/overview"> Autodesk AI Lab </a> where I worked with 
               <a href="https://www.autodesk.com/research/people/rodger-luo"> Dr. Rodger Luo </a> on AI driven design approaches. 
               </p>
@@ -580,12 +580,12 @@
     const height = window.innerHeight;
     
     const nodes = [
-      { id: "A", group: 1, text: "AI/ML/RL +\nRepresentation\nlearning" },
-      { id: "B", group: 1, text: "Systems\nintegration" },
-      { id: "C", group: 1, text: "Control\ntheory" },
-      { id: "D", group: 2, text: "Smart\nmanufacturing" }, 
-      { id: "E", group: 2, text: "Autonomous\nrobots" },
-      { id: "F", group: 2, text: "Generative\ndesign" },
+      { id: "A", group: 1, text: "AI/ML/RL +\nRepresentation\nlearning"},
+      { id: "B", group: 1, text: "Systems\nintegration"},
+      { id: "C", group: 1, text: "Control\ntheory"},
+      { id: "D", group: 2, text: "Autonomous\nrobots"}, 
+      { id: "E", group: 2, text: "Smart\nmanufacturing"},
+      { id: "F", group: 2, text: "Generative\ndesign"},
     ];
 
     const links = [
@@ -624,9 +624,10 @@
       .call(drag(simulation));
 
     node.append("circle")
-      .attr("r", 20)
+      .attr("r", 25)
       .attr("fill", d => color(d.group))
-      .style("fill-opacity","0.25")
+      .style("fill-opacity","0.10")
+      .style("font-family", "\\fontfamily{cmr}\\selectfont")
       .attr("stroke", "#fff")
       .attr("stroke-width", 0);
 
