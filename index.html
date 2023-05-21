@@ -30,14 +30,19 @@
               <p style="text-align:center">
                 <name>Md Ferdous Alam</name>
               </p>
-              <p>I obtained my Ph.D. at the Ohio State University where I worked on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks such as design, manufacturing and robotics. 
-                I was supervised by 
-              <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. Previously, I also worked as a research intern and later a research collaborator at the 
+              <p>I am a post-doc at MIT working with 
+              <a href="https://meche.mit.edu/people/faculty/faez@MIT.EDU"> Professor Faez Ahmed</a>. Recently, 
+                I earned my Ph.D. from the Ohio State University where I worked on machine learning, 
+                representation learning and reinforcement learning for decision making in complex 
+                real-world tasks such as design, manufacturing and robotics. 
+                I was supervised by <a href="https://mae.osu.edu/people/hoelzle.1"> Professor David Hoelzle</a>. Previously, 
+                I also worked as a research intern and later a research collaborator at the 
               <a href="https://www.autodesk.com/research/overview"> Autodesk AI Lab </a> where I worked with 
-              <a href="https://www.autodesk.com/research/people/rodger-luo"> Dr. Rodger Luo </a> on AI driven design approaches. 
+              <a href="https://www.autodesk.com/research/people/rodger-luo"> Dr. Rodger Luo </a> on AI driven 
+              design approaches. 
               </p>
               <p style="text-align:center">
-                <a href="mailto:alam.92@osu.edu">Email</a> &nbsp|&nbsp
+                <a href="mailto:mfalam@mit.edu">Email</a> &nbsp|&nbsp
                 <a href="data/Ferdous_alam-bio.txt">Bio</a> &nbsp|&nbsp
                 <a href="https://scholar.google.com/citations?user=m5ofw-YAAAAJ&hl=en">Google Scholar</a> &nbsp|&nbsp
                 <a href="data/academic_CV_Ferdous_Alam.pdf">Academic CV</a> 
@@ -61,17 +66,19 @@
               <svg id="networkGraph" width="800" height="250"></svg>
        
               <p>
-                My core research interest is to enable efficient decision making in complex autonomous systems. 
+                My core research interest is to enable efficient decision making in complex systems. 
                 I draw from artificial intelligence (AI)/machine learning (ML), deep learning, 
                 representation learning and control theory to develop learning algorithms for 
                 various demanding tasks. My past research experience focuses on developing data-efficient
-                learning algorithms with knowledge transfer between tasks for robot learning, representation learning and AI/ML systems integration 
+                learning algorithms with knowledge transfer between tasks for robot learning, 
+                representation learning and AI/ML systems integration 
                 for AI assisted design and intelligent manufacturing. I, along with my 
                 team members, have built a state-of-the-art autonomous manufacturing research robot 
                 that can take decisions in real-time to design and manufacture a complex geometry 3D 
-                artifact <strong>without any human intervention</strong> and require 10x less data samples. I have designed and implemented the software architecture 
+                artifact <strong>without any human intervention</strong> and require 10x less data samples. I have 
+                designed and implemented the software architecture 
                 for this autonomous robot. During my internship at the Autodesk 
-                AI Lab, I have worked on transformer based self-supervised approaches and autoregressive generative models 
+                AI Lab, I have worked on transformer based representation learning and autoregressive generative models 
                 for complex 3D design tasks.   
                 <strong>Due to logistics issue the arxiv links 
                 are not working at this moment, please reach out to me if you are interested in my research. </strong>
@@ -603,7 +610,8 @@
       { source: "B", target: "D" }, 
       { source: "B", target: "E" }, 
       { source: "C", target: "D" }, 
-      { source: "C", target: "E" }  
+      { source: "C", target: "E" }, 
+      { source: "E", target: "F" }
     ];
 
     const color = d3.scaleOrdinal()
@@ -613,7 +621,7 @@
     const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id).distance(50))
       .force("charge", d3.forceManyBody().strength(-500))
-      .force("center", d3.forceCenter(375, 125))
+      .force("center", d3.forceCenter(375, 130))
       // .force("square", squareForce(300, 250, 100))
       .on("tick", ticked);
 
