@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>D3 Force Graph</title>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<div id="graph"></div>
+<script>
+var width = 960,
+  height = 500;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+  .charge(-120)
+  .linkDistance(30)
+  .size([width, height]);
+
+var svg = d3.select("#graph").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+var nodes = [
+  { id: "1", name: "Node 1" },
+  { id: "2", name: "Node 2" },
+  { id: "3", name: "Node 3" },
+  { id: "4", name: "Node 4" },
+  { id: "5", name: "Node 5" },
+  { id: "6", name: "Node 6" }
+];
+
+var links = [
+  { source: "1", target: "2" },
+  { source: "1", target: "3" },
+  { source: "1", target: "4" },
+  { source: "1", target: "5" },
+  { source: "1", target: "6" },
+  { source: "2", target: "3" },
+  { source: "2", target: "4" },
+  { source: "2", target: "5" },
+  { source: "2", target: "6" },
+  { source: "3", target: "4" },
+  { source: "3", target: "5" },
+  { source: "3", target: "6" },
+  { source: "4", target: "5" },
+  { source: "4", target: "6" },
+  { source: "5", target: "6" }
+];
+
+var drawGraph = function() {
+  force
+    .nodes(nodes)
+    .links(links)
+    .start();
+
+  var link = svg.selectAll(".link")
+    .data(links)
+    .enter().append("line")
+    .attr("class", "link")
+    .style("stroke-width", function(d) {
+      return Math.sqrt(d.value);
+    });
+
+  var gnodes = svg.selectAll(".gnode")
+    .data(nodes)
+    .enter()
+    .append("g")
+    .classed("gnode", true)
+    .attr("transform", function(d) {
+      return "translate(" + d.x + "," + d.y + ")";
+    })
+    .append("circle")
+    .attr("r", 10)
+    .style("fill", function(d) {
+      return color(d.name);
+    })
+    .on("mousedown", function(d) {
+      // Set the cursor to a crosshair when a node is clicked
+      d3.select(this).attr("cursor", "crosshair");
+    })
+    .on("mouseup", function(d) {
+      // Remove the crosshair cursor when a node is released
+      d3.select(this).attr("cursor", "default");
+    });
+
+  var text = svg.selectAll(".text")
+    .data(nodes)
+    .enter()
+    .append("text")
+    .attr("class", "text")
+    .text(function(d) {
+      return d.name;
+    })
+    .attr("x", function(d) {
+      return d.x + 15;
+    })
+    .attr("y", function(d) {
+      return d.y + 15;
+    });
+};
+
+drawGraph();
+</script>
+</body>
+</html>

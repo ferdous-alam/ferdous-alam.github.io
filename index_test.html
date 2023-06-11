@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Force-Directed Network</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    /* CSS styles */
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 1.5px;
+    }
+
+    .bold-link {
+      stroke: #000;
+      stroke-width: 3px;
+    }
+
+    .node {
+      stroke: #000;
+      stroke-width: 1.5px;
+      fill: rgba(173, 216, 230, 0.7); /* Light blue with 70% opacity */
+    }
+
+    .node:hover {
+      cursor: move;
+    }
+
+    .node-text {
+      font-size: 12px;
+      pointer-events: none;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+<body>
+  <svg width="500" height="300"></svg>
+
+  <script>
+    // JavaScript code
+    const nodes = [
+      { id: 0, x: 0, y: 0, label:'AI/ML/RL'},   // Input Layer Node 1
+      { id: 1, x: 0, y: 100, label:'Optimal control'}, // Input Layer Node 2
+      { id: 2, x: 0, y: 200, label:'Systems integration'}, // Input Layer Node 3
+      { id: 3, x: 200, y: 0, label:'Generative design'}, // Output Layer Node 1
+      { id: 4, x: 200, y: 100, label:'Intelligent manufacturing'}, // Output Layer Node 2
+      { id: 5, x: 200, y: 200, label:'Autonomous robots'}  // Output Layer Node 3
+    ];
+
+    const links = [
+      { source: 0, target: 3 }, // Connection from Input Layer Node 1 to Output Layer Node 1
+      { source: 0, target: 4 }, // Connection from Input Layer Node 1 to Output Layer Node 2
+      { source: 0, target: 5 }, // Connection from Input Layer Node 1 to Output Layer Node 3
+      { source: 1, target: 4 }, // Connection from Input Layer Node 2 to Output Layer Node 1
+      { source: 1, target: 5 }, // Connection from Input Layer Node 2 to Output Layer Node 2
+      { source: 2, target: 4 }, // Connection from Input Layer Node 3 to Output Layer Node 1
+      { source: 2, target: 5 }, // Connection from Input Layer Node 3 to Output Layer Node 2
+      { source: 3, target: 4 }, // Connection from Input Layer Node 3 to Output Layer Node 2
+    ];
+
+    const svg = d3.select("svg");
+    const width = +svg.attr("width");
+    const height = +svg.attr("height");
+
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(25))
+      .force("charge", d3.forceManyBody().strength(-200))
+      .force("x", d3.forceX(d => d.x).strength(1.75))
+      .force("y", d3.forceY(d => d.y).strength(0.1));
+
+    const link = svg.selectAll(".link")
+      .data(links)
+      .enter()
+      .append("line")
+      .attr("class", "link")
+      .attr("stroke-width", 1.5)
+      .attr("stroke", "#ccc");
+
+    const node = svg.selectAll(".node")
+      .data(nodes)
+      .enter()
+      .append("circle")
+      .attr("class", "node")
+      .attr("r", 20)
+      .attr("stroke-width", 1.5)
+      .attr("stroke", "#000")
+      .attr("fill", "rgba(173, 216, 230, 0.7)")
+      .on("mouseover", function (event, d) {
+        // Highlight the links connected to the hovered node
+        svg.selectAll(".link")
+          .filter(linkData => linkData.source === d || linkData.target === d)
+          .classed("bold-link", true);
+      })
+      .on("mouseout", function (event, d) {
+        // Remove the highlight from the links when the mouse moves away from the node
+        svg.selectAll(".link")
+          .filter(linkData => linkData.source === d || linkData.target === d)
+          .classed("bold-link", false);
+      })
+      .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+    const labels = svg.selectAll(".node-label")
+      .data(nodes)
+      .enter()
+      .append("text")
+      .attr("class", "node-label")
+      .attr("text-anchor", "middle")
+      .attr("dy", 5)
+      .text(d => d.label);
+
+    function ticked() {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      labels
+        .attr("x", d => d.x)
+        .attr("y", d => d.y);
+    }
+
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+
+    simulation.on("tick", ticked);
+  </script>
+</body>
+</html>
