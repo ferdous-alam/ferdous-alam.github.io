@@ -1,12 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - ferdous-alam
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - ferdous-alam/Autonomous-Manufacturing-Robot
+  - ferdous-alam/onshape-api-wrapper
+  - ferdous-alam/Transfer-RL
+  - ferdous-alam/DeconstructedML
+  - ferdous-alam/DVRK_robot_project
+  
