@@ -6,14 +6,16 @@ subtitle: <a href=https://decode.mit.edu/>Postdoctoral Associate</a>. MechE. MIT
 
 profile:
   align: right
-  image: profile_pic_3.jpg
+  image: profile_pic_4.jpg
   image_circular: false # crops the image to make it circular
 
 news: true # includes a list of news items
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a post-doc at MIT working with [Faez Ahmed](https://meche.mit.edu/people/faculty/faez@MIT.EDU). Recently, I earned my Ph.D. from the Ohio State University where I worked on machine learning, representation learning and reinforcement learning for decision making in complex real-world tasks such as design, manufacturing and robotics. I was supervised by [David Hoelzle](https://mae.osu.edu/people/hoelzle.1). Previously, I also worked as a research intern and later a research collaborator at the [Autodesk AI Lab](https://www.research.autodesk.com/) on AI for 3D generative computational design.
+I am a post-doc at MIT working with [Faez Ahmed](https://meche.mit.edu/people/faculty/faez@MIT.EDU). Recently, I earned my Ph.D. from the Ohio State University where I worked on intelligent robotic manufacturing system and generative computational design. I was fortunate to be supervised by [David Hoelzle](https://mae.osu.edu/people/hoelzle.1). Previously, I also worked as a research intern and later a research collaborator at the [Autodesk AI Lab](https://www.research.autodesk.com/) on AI for 3D generative computational design. My core expertise includes generative AI, representation learning/reinforcement learning, optimal control theory and AI software integration in manufacturing hardware. 
 
 
-My core research interest is to enable efficient decision making in complex systems. I draw from artificial intelligence (AI)/machine learning (ML) and control theory to develop learning algorithms for intelligent manufacturing systems, autonomous robots and generative/algorithmic engineering design tasks. Within AI/ML my interest lies in representation learning and reinforcement learning. I am also interested in the AI/ML systems integration for these critical application domains. During my Ph.D., I developed data-efficient reinforcement learning algorithms using knowledge transfer between tasks and probabilistic reward modeling. I was also part of the team that built a state-of-the-art autonomous manufacturing research robot that can take decisions in real-time to design and manufacture a complex geometry 3D artifact without any human intervention and require 10x less data samples than traditional approaches. I have designed and implemented the AI/ML software architecture for this autonomous robot. I have also worked as a research intern, and later a collaborator, at the Autodesk AI Lab where we developed transformer based representation learning and autoregressive generative models for voxel-based 3D design tasks. 
+
+My core vision is to build the next generation of manufacturing automation by taking a synergistic hardware-software approach. I envision a general purpose **Intelligent and integrated Manufacturing Operating System (IMOS)** that combines AI systems at its core for intelligent CAD/CAM/PDM/PLM, robotic manufacturing and process control. During my PhD and continuing thereafter, I have been working towards this vision by developing novel AI algorithms for computational 3D design and digital manufacturing. A significant focus of my research also includes real-time systems integration of AI-software with novel manufacturing hardware. [I have shown one of the first successful deployment of real-time AI-assisted process control in a custom built additive manufacturing system](/publications/). The algorithms that I have developed can learn to manufacture complex 3D metamaterial while requiring 10x less data samples than traditional approaches.
+
