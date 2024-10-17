@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2020-7-23 07:59:00-0400
+date: 2024-4-17 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-I have been awarded the [best paper award at MSEC 2020](https://mae.osu.edu/news/2020/07/mae-graduate-student-wins-best-paper-award-msec-2020)
+I presented our [Next-Gen AI work](https://mit-genai.pubpub.org/pub/9s6690gd/release/2?readingCollection=6d8d7700) at MIT Shaping the work initiative
