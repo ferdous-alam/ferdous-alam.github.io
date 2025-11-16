@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "node server.js",
-    "build:manifest": "node scripts/build-manifest.js"
+    "build:manifest": "node scripts/build-manifest.js",
+    "predeploy": "npm run build:manifest",
+    "deploy": "git add posts/manifest.json && git commit -m 'Update blog manifest' && git push origin main"
   },
   "dependencies": {
     "express": "^4.19.2"
