@@ -2,54 +2,113 @@
 
 This is a lightweight static blog that renders posts written in Markdown with math (KaTeX), code blocks, tables, and pseudocode. Posts live in `posts/` and are displayed on the home page sorted by date.
 
-## Add a new post (two options)
+Live at: **https://ferdous-alam.github.io/**
 
-1) No server (pure static): use a tiny manifest file
+## 🚀 Quick Start - Add a New Blog Post
 
-Create a new Markdown file in `posts/` with YAML frontmatter:
+**The easiest way (recommended):**
+
+1. Create a new Markdown file in `posts/` with YAML frontmatter:
 
    ```markdown
    ---
-   title: My New Post
+   title: My Awesome Blog Post
    date: Nov 16, 2025
-   author: Your Name
-   subtitle: One-line summary of the post.
+   author: Ferdous Alam
+   subtitle: A brief description of your post
+   keywords: math, coding, tutorial
    ---
    
-   Your content here. Math like $e^{i\pi}+1=0$ and code fences work.
+   Your content here. Math like $e^{i\pi}+1=0$ and code fences work!
    ```
 
-Regenerate the manifest so the home page can discover your new file:
+2. Deploy with one command:
 
-   - Option A: Use the provided Node script (requires Node.js installed):
-     
-     ```bash
-     node scripts/build-manifest.js
-     ```
-   
-   - Option B: Manually update `posts/manifest.json` and add your file path (e.g., `"posts/my-new-post.md"`).
+   ```bash
+   npm run deploy
+   ```
 
-2) No manifest: run the tiny API server for local/dev
+   This will automatically:
+   - Regenerate `posts/manifest.json`
+   - Commit the changes
+   - Push to GitHub
+   - Your blog appears on the site in 1-2 minutes!
 
-The browser cannot list folder contents on its own in a static site. If you prefer to avoid a manifest, run the included dev server which exposes `/api/posts` by enumerating files in `posts/` on the server side. The home page will use this API automatically when available.
+**Alternative manual workflow:**
+
+```bash
+npm run build:manifest  # Update manifest
+git add .
+git commit -m "Add new blog post"
+git push origin main
+```
+
+## 🛠️ Local Development
+
+To preview your site locally:
 
 ```bash
 npm install
 npm run dev
-# open http://localhost:3000
+# Open http://localhost:3000
 ```
 
-When deployed without the server (e.g., GitHub Pages), the site will fall back to `posts/manifest.json` or any static links in `index.html`.
+The dev server provides an API endpoint that automatically lists all posts, so you don't need to rebuild the manifest while developing.
 
-The home page script (`public/home.js`) will read `posts/manifest.json`, load each post's frontmatter, and render the list sorted by `date` (descending). Clicking a post opens `post.html?src=posts/<file>.md`, which renders the full content with math and pseudocode.
+## 📝 How It Works
 
-## Notes
+- The home page script (`public/home.js`) reads `posts/manifest.json`
+- It loads each post's frontmatter and renders the list sorted by date (descending)
+- Clicking a post opens `post.html?src=posts/<file>.md` which renders the full content
+- KaTeX auto-render is enabled for beautiful math equations
+- Supports code blocks, tables, and pseudocode (use triple-backticks with `pseudocode` tag)
 
-- Dates should be in a format parseable by the browser (e.g., `Nov 16, 2025` or `2025-11-16`).
-- If `/api/posts` is available (when running the dev server), the home page will auto-list all markdown files in `posts/` sorted by `date` without requiring a manifest.
-- If `posts/manifest.json` is missing and no server is running, the home page will fall back to any static links already present in `index.html` and "hydrate" their title/subtitle from the post frontmatter.
-- KaTeX auto-render is enabled on both the home page and post pages.
-- Pseudocode blocks use triple-backticks with a `pseudocode` language tag.
+## 🌐 Deploy to GitHub Pages
+
+**Initial Setup (already done for this repo):**
+
+1. Repository name must be `username.github.io` (e.g., `ferdous-alam.github.io`)
+2. Repository must be public
+3. The `.nojekyll` file ensures all files (including `.md`) are served correctly
+4. GitHub Pages automatically builds from the `main` branch
+
+**Your site is live at:** https://ferdous-alam.github.io/
+
+After pushing changes with `npm run deploy`, wait 1-2 minutes for GitHub to rebuild.
+
+## 📦 Available Scripts
+
+- `npm run dev` - Start local development server at http://localhost:3000
+- `npm run build:manifest` - Regenerate posts/manifest.json from markdown files
+- `npm run deploy` - Auto-build manifest, commit, and push to GitHub (all-in-one)
+
+## 📄 Frontmatter Format
+
+```markdown
+---
+title: Your Post Title (required)
+date: Nov 16, 2025 (required for sorting)
+author: Your Name
+subtitle: Brief description (shown on home page)
+keywords: comma, separated, keywords
+---
+```
+
+Dates can be in any format parseable by JavaScript's `Date.parse()`:
+- `Nov 16, 2025`
+- `2025-11-16`
+- `November 16, 2025`
+
+## ✨ Features
+
+- ✅ Markdown with frontmatter
+- ✅ Math rendering with KaTeX ($inline$ and $$display$$)
+- ✅ Code syntax highlighting
+- ✅ Dark/light theme toggle
+- ✅ Search functionality
+- ✅ Responsive design
+- ✅ No build step required (pure static)
+- ✅ Automatic blog list generation
 
 ## Deploy to GitHub Pages
 
