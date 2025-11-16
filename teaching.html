@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching - Ferdous Alam</title>
+  <link rel="stylesheet" href="public/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Ferdous Alam</a>
+      <div class="header-actions">
+        <nav class="nav">
+          <a href="teaching.html" class="nav-link active">Teaching</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="divider"></div>
+  <main class="main-content">
+    <section class="page-section" id="courses-content">
+      <!-- Courses will be rendered here -->
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">© Ferdous Alam</div>
+  </footer>
+  <script src="public/theme.js"></script>
+  <script src="public/courses.js"></script>
+  <script>
+    renderCourses('courses.json', '#courses-content');
+  </script>
+</body>
+</html>

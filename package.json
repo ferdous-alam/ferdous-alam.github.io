@@ -1,0 +1,12 @@
+{
+  "name": "minimal-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build:manifest": "node scripts/build-manifest.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

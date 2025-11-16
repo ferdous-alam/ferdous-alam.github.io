@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferdous Alam | Math & Code Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css" />
+
+  <!-- KaTeX for beautiful math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false} ]})"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">Ferdous Alam</div>
+      <div class="header-actions">
+        <nav class="nav">
+          <a href="teaching.html" class="nav-link">Teaching</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="divider"></div>
+  <div class="search-bar-container">
+    <button class="search-btn" aria-label="Search blogs">
+      <span class="search-icon">🔍</span>
+    </button>
+  <input class="search-input" type="text" placeholder="Search blogs..." />
+  </div>
+    </div>
+  <main class="main-content">
+    <section class="blogs">
+      <div class="blogs-list">
+        <!-- Blog posts will be dynamically loaded here by home.js -->
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">© Ferdous Alam</div>
+  </footer>
+  <script src="public/theme.js"></script>
+  <script defer src="public/home.js"></script>
+</body>
+</html>

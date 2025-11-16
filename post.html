@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/styles.css" />
+  <!-- KaTeX for beautiful math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false} ]})"></script>
+</head>
+<body>
+  <div class="blog-header-bar">
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <span class="icon-moon">🌙</span>
+      <span class="icon-sun">☀️</span>
+    </button>
+  </div>
+  <main class="main-content blog-post">
+    <div id="blog-meta"></div>
+    <div id="blog-content"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">© Ferdous Alam</div>
+  </footer>
+  <script src="public/theme.js"></script>
+  <script src="public/markdown.js"></script>
+  <script src="public/blog.js"></script>
+  <script>
+    (function(){
+      function getParam(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+      var src = getParam('src') || getParam('md');
+      if (!src) {
+        document.getElementById('blog-meta').innerHTML = '<h1 class="blog-title-main">Post not found</h1>';
+        return;
+      }
+      window.loadBlogPost(src, '#blog-meta', '#blog-content');
+      if (window.initThemeToggle) window.initThemeToggle();
+    })();
+  </script>
+</body>
+</html>
