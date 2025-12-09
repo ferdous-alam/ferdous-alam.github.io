@@ -36,6 +36,32 @@ function renderMarkdown(md) {
     // Skip pure whitespace lines
     if (/^\s*$/.test(line)) { i++; continue; }
 
+    // Preserve HTML blocks (div, script, etc.)
+    if (/^\s*<(div|script|style|a|button|img)/i.test(line)) {
+      const htmlLines = [line];
+      const tagMatch = line.match(/<(\w+)/);
+      const tag = tagMatch ? tagMatch[1] : null;
+      i++;
+      
+      // If it's a self-closing tag or closed on same line, just output it
+      if (line.includes('/>') || (tag && line.includes(`</${tag}>`))) {
+        out.push(htmlLines.join('\n'));
+        continue;
+      }
+      
+      // Otherwise, collect until closing tag
+      while (i < N && !(tag && lines[i].includes(`</${tag}>`))) {
+        htmlLines.push(lines[i]);
+        i++;
+      }
+      if (i < N) { 
+        htmlLines.push(lines[i]); 
+        i++; 
+      }
+      out.push(htmlLines.join('\n'));
+      continue;
+    }
+
     // Fenced code block
     const fence = line.match(/^```\s*([A-Za-z0-9_+-]*)\s*$/);
     if (fence) {

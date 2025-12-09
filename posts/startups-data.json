@@ -1,0 +1,98 @@
+{
+  "categories": [
+    { "id": "manufacturing", "emoji": "🏭", "label": "Manufacturing" },
+    { "id": "design", "emoji": "✨", "label": "Design" },
+    { "id": "engineering", "emoji": "⚡", "label": "Engineering" },
+    { "id": "embodiment", "emoji": "🤖", "label": "Embodiment" }
+  ],
+  "companies": [
+    {
+      "name": "AI-Build",
+      "category": "manufacturing",
+      "logo": "posts/logos/ai_build_logo.jpeg",
+      "fallback": "AB",
+      "description": "AI-powered robotic 3D printing software for large-scale additive manufacturing.",
+      "url": "https://ai-build.com/"
+    },
+    {
+      "name": "Spectral Labs",
+      "category": "design",
+      "logo": "posts/logos/spectrallabs_logo.jpeg",
+      "fallback": "SL",
+      "description": "Building reasoning models and spatial intelligence for engineering physical systems.",
+      "url": "https://www.spectrallabs.ai/"
+    },
+    {
+      "name": "PhysicsX",
+      "category": "engineering",
+      "logo": "posts/logos/physicx_logo.jpeg",
+      "fallback": "PX",
+      "description": "AI-native simulation engineering to accelerate physics-based design and optimization.",
+      "url": "https://physicsx.ai/"
+    },
+    {
+      "name": "Foundation EGI",
+      "category": "engineering",
+      "logo": "posts/logos/foundationllm_logo.jpeg",
+      "fallback": "FE",
+      "description": "Engineering General Intelligence platform automating product development and documentation.",
+      "url": "https://www.foundationegi.com/"
+    },
+    {
+      "name": "NeuralConcept",
+      "category": "engineering",
+      "logo": "posts/logos/neuralconcept_logo.jpeg",
+      "fallback": "NC",
+      "description": "Deep learning platform for 3D engineering design and real-time simulation prediction.",
+      "url": "https://www.neuralconcept.com/"
+    },
+    {
+      "name": "P-1 AI",
+      "category": "engineering",
+      "logo": "posts/logos/p_1_ai_logo.jpeg",
+      "fallback": "P1",
+      "description": "Developing 'Archie', an AI engineer for automating cognitive physical design tasks.",
+      "url": "https://www.p-1.ai/"
+    },
+    {
+      "name": "Drafter",
+      "category": "design",
+      "logo": "posts/logos/drafter_inc_logo.jpeg",
+      "fallback": "DR",
+      "description": "Automating mechanical design and manufacturing drawing generation.",
+      "url": "https://www.drafterinc.com/"
+    },
+    {
+      "name": "NavierAI",
+      "category": "engineering",
+      "logo": "posts/logos/navier_ai_logo.jpeg",
+      "fallback": "NA",
+      "description": "AI-accelerated CFD solvers running 1000x faster than traditional physics simulations.",
+      "url": "https://navier.ai/"
+    },
+    {
+      "name": "Covariant",
+      "category": "embodiment",
+      "logo": "posts/logos/covariant_ai_logo.jpeg",
+      "fallback": "CV",
+      "description": "Building the 'Covariant Brain', a universal AI for robotic manipulation and adaptation.",
+      "url": "https://covariant.ai/"
+    },
+    {
+      "name": "Zoo",
+      "category": "design",
+      "logo": "posts/logos/zoodotdev_logo.jpeg",
+      "fallback": "ZO",
+      "description": "Modern hardware design infrastructure and API-based computational CAD tools.",
+      "url": "https://zoo.dev/"
+    },
+    {
+      "name": "Physical Intelligence",
+      "category": "embodiment",
+      "logo": "posts/logos/physical_intelligence_logo.jpeg",
+      "fallback": "PI",
+      "description": "Developing foundation models to bring general-purpose AI to robots and physical devices.",
+      "url": "https://www.physicalintelligence.company/"
+    }
+  ]
+}

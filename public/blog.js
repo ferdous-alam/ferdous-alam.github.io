@@ -78,6 +78,18 @@ function loadBlogPost(mdPath, metaSelector, contentSelector, defaults) {
       const container = document.querySelector(contentSelector);
       container.innerHTML = html;
       container.classList.add('blog-content-markdown');
+      
+      // Execute any script tags that were in the markdown
+      const scripts = container.querySelectorAll('script');
+      scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(attr => {
+          newScript.setAttribute(attr.name, attr.value);
+        });
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+      
       if (window.renderMathInElement) {
         renderMathInElement(container, {
           delimiters: [
