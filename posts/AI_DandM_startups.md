@@ -1,7 +1,7 @@
 ---
 title: AI Startups in Design & Manufacturing
 subtitle: Pioneering the future of intelligent design and manufacturing
-date: Dec 09, 2025
+date: May 08, 2026
 keywords: AI, startups, manufacturing, design, robotics
 ---
 

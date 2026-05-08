@@ -10,6 +10,7 @@
       "name": "AI-Build",
       "category": "manufacturing",
       "logo": "posts/logos/ai_build_logo.jpeg",
+      "logoSize": 80,
       "fallback": "AB",
       "description": "AI-powered robotic 3D printing software for large-scale additive manufacturing.",
       "url": "https://ai-build.com/"
@@ -18,6 +19,7 @@
       "name": "Spectral Labs",
       "category": "design",
       "logo": "posts/logos/spectrallabs_logo.jpeg",
+      "logoSize": 80,
       "fallback": "SL",
       "description": "Building reasoning models and spatial intelligence for engineering physical systems.",
       "url": "https://www.spectrallabs.ai/"
@@ -26,6 +28,7 @@
       "name": "PhysicsX",
       "category": "engineering",
       "logo": "posts/logos/physicx_logo.jpeg",
+      "logoSize": 80,
       "fallback": "PX",
       "description": "AI-native simulation engineering to accelerate physics-based design and optimization.",
       "url": "https://physicsx.ai/"
@@ -34,6 +37,7 @@
       "name": "Foundation EGI",
       "category": "engineering",
       "logo": "posts/logos/foundationllm_logo.jpeg",
+      "logoSize": 80,
       "fallback": "FE",
       "description": "Engineering General Intelligence platform automating product development and documentation.",
       "url": "https://www.foundationegi.com/"
@@ -42,6 +46,7 @@
       "name": "NeuralConcept",
       "category": "engineering",
       "logo": "posts/logos/neuralconcept_logo.jpeg",
+      "logoSize": 80,
       "fallback": "NC",
       "description": "Deep learning platform for 3D engineering design and real-time simulation prediction.",
       "url": "https://www.neuralconcept.com/"
@@ -50,6 +55,7 @@
       "name": "P-1 AI",
       "category": "engineering",
       "logo": "posts/logos/p_1_ai_logo.jpeg",
+      "logoSize": 80,
       "fallback": "P1",
       "description": "Developing 'Archie', an AI engineer for automating cognitive physical design tasks.",
       "url": "https://www.p-1.ai/"
@@ -58,6 +64,7 @@
       "name": "Drafter",
       "category": "design",
       "logo": "posts/logos/drafter_inc_logo.jpeg",
+      "logoSize": 80,
       "fallback": "DR",
       "description": "Automating mechanical design and manufacturing drawing generation.",
       "url": "https://www.drafterinc.com/"
@@ -66,6 +73,7 @@
       "name": "NavierAI",
       "category": "engineering",
       "logo": "posts/logos/navier_ai_logo.jpeg",
+      "logoSize": 80,
       "fallback": "NA",
       "description": "AI-accelerated CFD solvers running 1000x faster than traditional physics simulations.",
       "url": "https://navier.ai/"
@@ -74,6 +82,7 @@
       "name": "Covariant",
       "category": "embodiment",
       "logo": "posts/logos/covariant_ai_logo.jpeg",
+      "logoSize": 80,
       "fallback": "CV",
       "description": "Building the 'Covariant Brain', a universal AI for robotic manipulation and adaptation.",
       "url": "https://covariant.ai/"
@@ -82,6 +91,7 @@
       "name": "Zoo",
       "category": "design",
       "logo": "posts/logos/zoodotdev_logo.jpeg",
+      "logoSize": 80,
       "fallback": "ZO",
       "description": "Modern hardware design infrastructure and API-based computational CAD tools.",
       "url": "https://zoo.dev/"
@@ -90,9 +100,65 @@
       "name": "Physical Intelligence",
       "category": "embodiment",
       "logo": "posts/logos/physical_intelligence_logo.jpeg",
+      "logoSize": 80,
       "fallback": "PI",
       "description": "Developing foundation models to bring general-purpose AI to robots and physical devices.",
       "url": "https://www.physicalintelligence.company/"
+    }, 
+    {
+      "name": "Backflip AI",
+      "category": "design",
+      "logo": "posts/logos/backflip_ai_logo.svg",
+      "logoSize": 200,
+      "fallback": "PI",
+      "description": "AI 3D Mesh to CAD",
+      "url": "https://www.backflip.ai/"
+    }, 
+    {
+      "name": "Generative Machine Company AI",
+      "category": "manufacturing",
+      "logo": "posts/logos/generative_machine_logo.png",
+      "logoSize": 100,
+      "fallback": "PI",
+      "description": "5 axis desktop FFF platform for multi-axis research, training, and production-grade parts",
+      "url": "https://www.generativemachine.com/?gad_source=1&gad_campaignid=23505390847&gbraid=0AAAABCVczvtLMD4QftDcj_Lyjl8O0qmQt&gclid=Cj0KCQjwk_bPBhDXARIsACiq8R2t5OHQJcKbLGcQZkftQvnpl6mbC_Zx-PIqg3N4lVSuvv-_KUVVR_EaAsWmEALw_wcB"
+    }, 
+        {
+      "name": "Synera",
+      "category": "engineering",
+      "logo": "posts/logos/synera_logo.svg",
+      "logoSize": 100,
+      "logoBg": "#ffffff",
+      "fallback": "PI",
+      "description": "Agentic AI for new engineering operating model",
+      "url": "https://www.synera.io/"
+    }, 
+    {
+      "name": "VulcanForms",
+      "category": "manufacturing",
+      "logo": "posts/logos/vulcanforms_logo.svg",
+      "logoSize": 100,
+      "fallback": "PI",
+      "description": "The World’s Most Powerful Metal Product Manufacturing Platform",
+      "url": "https://www.vulcanforms.com/"
+    }, 
+    {
+      "name": "Narnia Labs",
+      "category": "design",
+      "logo": "posts/logos/narnialabs_logo.svg",
+      "logoSize": 100,
+      "fallback": "PI",
+      "description": "Agentic AI-driven Autonomous Design",
+      "url": "https://narnia.ai/" 
+    }, 
+    {
+      "name": "InfinitForm",
+      "category": "design",
+      "logo": "posts/logos/infinitform_logo.png",
+      "logoSize": 100,
+      "fallback": "PI",
+      "description": "Intelligence for the PhysicalWorld",
+      "url": "https://infinitform.com/" 
     }
   ]
 }

@@ -97,16 +97,23 @@
 
     function renderCompanies() {
       const grid = document.querySelector('.logo-grid');
-      grid.innerHTML = companies.map(company => `
-        <a href="${company.url}" target="_blank" rel="noopener" class="logo-card" data-category="${company.category}">
+      grid.innerHTML = companies.map(company => {
+        const size = company.logoSize || 80;
+        const bg = company.logoBg || '';
+        const bgStyle = bg
+          ? `--logo-card-bg:${bg};border-radius:12px;padding:6px;box-shadow:0 2px 8px rgba(0,0,0,0.12);`
+          : '';
+        const cardStyle = `width:${size}px;height:${size}px;${bgStyle}`;
+        return `
+        <a href="${company.url}" target="_blank" rel="noopener" class="logo-card" data-category="${company.category}" style="${cardStyle}">
           <img src="${company.logo}" alt="${company.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="logo-fallback" style="display:none;">${company.fallback}</div>
           <div class="tooltip">
             <div class="tooltip-title">${company.name}</div>
             <div class="tooltip-desc">${company.description}</div>
           </div>
-        </a>
-      `).join('');
+        </a>`;
+      }).join('');
     }
 
     // ============================================

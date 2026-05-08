@@ -922,7 +922,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  background: var(--logo-card-bg, transparent);
   border-radius: 16px;
   padding: 0.8rem;
   border: none;
@@ -934,7 +934,7 @@ html, body {
 }
 
 [data-theme="dark"] .logo-card {
-  background: transparent;
+  background: var(--logo-card-bg, transparent);
   border: none;
 }
 
